@@ -6,7 +6,7 @@ const app = express();
 
 app.use(cors());
 
-const NEWS_API_KEY = 'c3e95c06a89041e2a32007f6507ec8d5'; 
+const NEWS_API_KEY = '66f4feeeb5eb465d99aed659ff041c5d'; 
 
 
 app.use(express.static(__dirname));
