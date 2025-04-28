@@ -131,12 +131,28 @@
                 data.articles.forEach(article => {
                     const div = document.createElement('div');
                     div.className = 'news-item';
+                        if (article.urlToImage) {
+                        const img = document.createElement('img');
+                        img.src = article.urlToImage;
+                        img.alt = 'Article Image';
+                        img.style.width = '100%';
+                        img.style.borderRadius = '8px';
+                        img.style.marginBottom = '10px';
+                        div.appendChild(img);
+                    }
+
                     const titleLink = document.createElement('a');
                     titleLink.href = article.url;
                     titleLink.target = '_blank';
-                    titleLink.textContent = article.title || '';
+                    if (article.title === null) {
+                        titleLink.textContent = '';
+                    } else {
+                        titleLink.textContent = article.title;
+                    }
+                  
                     const title = document.createElement('h3');
                     title.appendChild(titleLink);
+                  
                     const description = document.createElement('p');
                     description.textContent = article.description || '';
                     div.appendChild(title);
